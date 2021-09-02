@@ -2,11 +2,13 @@
 #include <ctype.h>
 #include "scanner.h"
 
-enum Tokens{
-    FDT,
-    SEP,
-    CAD,
-};
+int es_cadena(char caracter){
+    
+    if(isspace(caracter) || caracter == ',' || caracter == EOF){
+        return 0;
+    }
+    return 1;
+}
 
 int get_token(){
     char caracter = getchar();
@@ -14,7 +16,7 @@ int get_token(){
 
     if(caracter != EOF){
 
-        if (caracter = ','){
+        if (caracter == ','){
             // falta cargar en buffer
             buffer[0] = caracter;
             return SEP;
@@ -27,6 +29,7 @@ int get_token(){
         while(es_cadena(caracter)){
             buffer[i] = caracter;
             i++;
+            caracter = getchar();
         }
         return CAD;
     }
@@ -34,10 +37,3 @@ int get_token(){
 }
 
 
-int es_cadena(char caracter){
-    
-    if(isspace(caracter) || caracter == ',' || caracter == EOF){
-        return 0;
-    }
-    return 1;
-}
