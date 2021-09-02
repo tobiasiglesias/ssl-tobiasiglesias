@@ -31,6 +31,7 @@ int get_token(){
             i++;
             caracter = getchar();
         }
+        ungetc(caracter, stdin);
         return CAD;
     }
     return FDT;
