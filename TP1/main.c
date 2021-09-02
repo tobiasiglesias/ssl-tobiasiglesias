@@ -20,11 +20,7 @@ int main(int argc, const char *argv[]){
             case FDT:
                 printf("Fin de texto: ");
                 break;
-            default:
-                printf("mmmm");
-                break;
         }
-
         memset(buffer,0,140);
-    } while(token != EOF);
+    } while(token != FDT);
 }

@@ -16,14 +16,14 @@ int get_token(){
 
     if(caracter != EOF){
 
+        while(isspace(caracter)){
+            caracter = getchar();
+        }
+
         if (caracter == ','){
             // falta cargar en buffer
             buffer[0] = caracter;
             return SEP;
-        }
-
-        while(isspace(caracter)){
-            caracter = getchar();
         }
 
         while(es_cadena(caracter)){
